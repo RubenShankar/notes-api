@@ -14,6 +14,13 @@ This is a backend Notes API built using Node.js, Express, and PostgreSQL.
 - PostgreSQL
 - JWT Authentication
 
+## API Testing
+Use Postman to test endpoints:
+
+POST /api/auth/register  
+POST /api/auth/login  
+GET /api/notes (Protected)
+
 ## Setup
 
 ```bash
