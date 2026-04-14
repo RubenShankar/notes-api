@@ -1,14 +1,14 @@
 
 # Notes API (Node.js)
 
-This is a backend Notes API built using Node.js, Express, and PostgreSQL.
+This is a backend, Notes API built using Node.js, Express, and PostgreSQL.
 
-## Features
+## Features 
 - User authentication (JWT)
 - Create, update, delete notes
 - PostgreSQL database integration
 
-## Tech Stack
+## Tech Stack used:
 - Node.js
 - Express.js
 - PostgreSQL
@@ -19,7 +19,7 @@ Use Postman to test endpoints:
 
 POST /api/auth/register  
 POST /api/auth/login  
-GET /api/notes (Protected)
+GET /api/notes (Protected) routes
 
 ## Setup
 
@@ -30,8 +30,8 @@ npm install
 node server.js
 
 
-## Author
+## completed by 
 
-👤 Ruben Shankar  
-🌐 GitHub: https://github.com/RubenShankar  
-💻 Node.js / Java Developer
+ Ruben Shankar  
+ GitHub: https://github.com/RubenShankar  
+ Node.js / Java Developer
