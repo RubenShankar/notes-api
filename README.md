@@ -24,6 +24,8 @@ GET /api/notes (Protected)
 ## Setup
 
 ```bash
+git clone https://github.com/RubenShankar/notes-api.git
+cd notes-api
 npm install
 node server.js
 
