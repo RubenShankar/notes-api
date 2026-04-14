@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Lear Node.js daily",
+    "content": "practice daily"
+  },
+  {
+    "id": 2,
+    "title": "Learning API's",
+    "content": "API's route handled"
+  },
+  {
+    "id": 3,
+    "title": "Get Together",
+    "content": "venue at Pach Pokhari"
+  },
+  {
+    "id": 4,
+    "title": "review in meeting",
+    "content": "16th of april"
+  },
+  {
+    "title": "POSTGRES SQL",
+    "content": "fixed the connection of node.js and pgAdmin Postgres Sql",
+    "id": 5
+  }
+]

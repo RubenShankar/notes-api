@@ -1,0 +1,75 @@
+console.log("THIS IS AUTHCONTROLLER");
+
+const pool = require("../config/db");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+exports.register = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const result = await pool.query(
+            "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
+            [email, hashedPassword]
+        );
+
+        res.status(201).json(result.rows[0]);
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+ 
+            //===================== LOGIN ==============
+
+exports.login = async (req, res) => {
+ 
+      console.log("LOGIN HIT ");
+    
+    const { email, password } = req.body;
+
+    try {
+        const result = await pool.query(
+            "SELECT * FROM users WHERE email = $1",
+            [email]
+        );
+
+        const user = result.rows[0];
+
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({ message: "Invalid password" });
+        }
+
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            "secretkey",
+            { expiresIn: "10 min" }
+        );
+
+        res.json({ token });
+
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+ // ==================== FETCH USER========================
+
+exports.users = async (req, res) => {
+    try {
+        const result = await pool.query("SELECT id, email FROM users");
+        res.json(result.rows);
+    } 
+    catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
